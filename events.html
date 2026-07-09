@@ -16,27 +16,27 @@
 <body>
 
     <!-- Scroll Progress Bar -->
-    <div class="scroll-progress-container">
+    <div class="scroll-progress-container" aria-hidden="true">
         <div class="scroll-progress-bar"></div>
     </div>
 
     <!-- Preloader -->
     <div class="preloader">
-        <div class="spinner"></div>
+        <div class="spinner" aria-hidden="true"></div>
         <div class="preloader-text">LOADING CATALOG</div>
     </div>
 
     <!-- Aurora backgrounds -->
-    <div class="aurora-container">
+    <div class="aurora-container" aria-hidden="true">
         <div class="aurora-mesh aurora-1 animate-aurora-1"></div>
         <div class="aurora-mesh aurora-2 animate-aurora-2"></div>
     </div>
 
     <!-- Header / Sticky Glass Navbar -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main Navigation">
         <div class="container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+            <a href="index.html" class="logo" aria-label="NexEvent Home">
+                <i class="fas fa-circle-nodes logo-icon" aria-hidden="true"></i> NexEvent
             </a>
             
             <ul class="nav-menu">
@@ -48,14 +48,14 @@
             </ul>
 
             <div class="nav-actions">
-                <button class="theme-toggle" aria-label="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
+                <button class="theme-toggle" aria-label="Toggle Color Theme" type="button">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                    <i class="fas fa-sun" aria-hidden="true"></i>
                 </button>
-                <button class="hamburger" aria-label="Mobile Navigation Toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="hamburger" aria-label="Toggle Mobile Navigation Drawer" aria-expanded="false" type="button">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </button>
             </div>
         </div>
@@ -67,8 +67,8 @@
         <!-- Header Banner Section -->
         <section class="section-padding anim-fade-in-up" style="padding-top: 100px; padding-bottom: var(--spacing-sm);">
             <div class="container text-center">
-                <span class="badge badge-tech"><i class="fas fa-cubes"></i> Campus Releases</span>
-                <h1 style="font-size: 2.8rem; margin-top: var(--spacing-xs); letter-spacing: -1.2px; font-weight: 700;">Explore Campus Events</h1>
+                <span class="badge badge-tech"><i class="fas fa-cubes" aria-hidden="true"></i> Campus Releases</span>
+                <h1 style="font-size: var(--font-h1); margin-top: var(--spacing-xs); letter-spacing: -1.2px; font-weight: 700;">Explore Campus Events</h1>
                 <p style="color: var(--text-secondary); max-width: 550px; margin: 8px auto 0; font-size: 0.98rem;">
                     Find academic symposiums, coding sprints, musical showcases, and sports meets. Use live filters to narrow down your choices instantly.
                 </p>
@@ -76,7 +76,7 @@
         </section>
 
         <!-- Catalog Filters Section -->
-        <section class="reveal-on-scroll" style="margin-bottom: var(--spacing-lg);">
+        <section class="reveal-on-scroll" style="margin-bottom: var(--spacing-lg);" aria-label="Search and Filter Controls">
             <div class="container">
                 <div class="glass-panel" style="padding: var(--spacing-md); display: flex; flex-direction: column; gap: var(--spacing-sm);">
                     
@@ -84,12 +84,14 @@
                     <div style="display: flex; gap: 15px; flex-wrap: wrap;">
                         <!-- Search Bar -->
                         <div style="flex-grow: 1; position: relative; min-width: 250px;">
-                            <i class="fas fa-search" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1rem;"></i>
+                            <label for="catalog-search" class="sr-only" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;">Search events</label>
+                            <i class="fas fa-search" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1rem;" aria-hidden="true"></i>
                             <input type="text" id="catalog-search" class="form-input" placeholder="Search event title, venue, coordinator..." style="padding-left: 45px; width: 100%;">
                         </div>
                         
                         <!-- Sort Selector -->
                         <div style="width: 200px; position: relative;">
+                            <label for="catalog-sort" class="sr-only" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;">Sort order</label>
                             <select id="catalog-sort" class="form-input" style="padding-right: 35px; cursor: pointer; appearance: none; -webkit-appearance: none;">
                                 <option value="date-asc">Sort: Soonest Date</option>
                                 <option value="date-desc">Sort: Farthest Date</option>
@@ -97,17 +99,17 @@
                                 <option value="title-desc">Sort: Z-A Alphabetical</option>
                                 <option value="seats-desc">Sort: Most Seats Left</option>
                             </select>
-                            <i class="fas fa-chevron-down" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none;"></i>
+                            <i class="fas fa-chevron-down" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none;" aria-hidden="true"></i>
                         </div>
                     </div>
 
                     <!-- Category Tab Buttons -->
                     <div style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; border-top: 1px solid var(--border-color); padding-top: 15px; flex-wrap: wrap; justify-content: center;">
-                        <button class="btn btn-primary btn-category active" data-category="all">All Releases</button>
-                        <button class="btn btn-glass btn-category" data-category="tech"><i class="fas fa-laptop-code" style="color: var(--primary);"></i> Tech</button>
-                        <button class="btn btn-glass btn-category" data-category="sports"><i class="fas fa-running" style="color: var(--secondary);"></i> Sports</button>
-                        <button class="btn btn-glass btn-category" data-category="cultural"><i class="fas fa-music" style="color: #D946EF;"></i> Cultural</button>
-                        <button class="btn btn-glass btn-category" data-category="academic"><i class="fas fa-graduation-cap" style="color: var(--accent);"></i> Academic</button>
+                        <button class="btn btn-primary btn-category active" data-category="all" type="button">All Releases</button>
+                        <button class="btn btn-glass btn-category" data-category="tech" type="button"><i class="fas fa-laptop-code" style="color: var(--primary);" aria-hidden="true"></i> Tech</button>
+                        <button class="btn btn-glass btn-category" data-category="sports" type="button"><i class="fas fa-running" style="color: var(--secondary);" aria-hidden="true"></i> Sports</button>
+                        <button class="btn btn-glass btn-category" data-category="cultural" type="button"><i class="fas fa-music" style="color: #D946EF;" aria-hidden="true"></i> Cultural</button>
+                        <button class="btn btn-glass btn-category" data-category="academic" type="button"><i class="fas fa-graduation-cap" style="color: var(--accent);" aria-hidden="true"></i> Academic</button>
                     </div>
 
                 </div>
@@ -115,20 +117,20 @@
         </section>
 
         <!-- Events Grid Section -->
-        <section class="section-padding" style="padding-top: 0;">
+        <section class="section-padding" style="padding-top: 0;" aria-label="Events Grid Results">
             <div class="container">
-                <div class="grid-3" id="events-catalog-grid">
+                <div id="events-catalog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr)); gap: var(--spacing-lg);">
                     <!-- Cards populated via JS -->
                 </div>
                 
                 <!-- No Results State -->
                 <div id="no-events-message" class="glass-panel text-center" style="display: none; padding: var(--spacing-xl); text-align: center;">
-                    <div style="font-size: 3.5rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);"><i class="fas fa-calendar-times"></i></div>
+                    <div style="font-size: 3.5rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);"><i class="fas fa-calendar-times" aria-hidden="true"></i></div>
                     <h3>No Events Found</h3>
                     <p style="color: var(--text-secondary); max-width: 400px; margin: 8px auto 0;">
                         We couldn't find any events matching your search keyword or selected category filter. Try clearing filters.
                     </p>
-                    <button class="btn btn-primary" id="reset-filters-btn" style="margin-top: 15px;">Clear Filters</button>
+                    <button class="btn btn-primary" id="reset-filters-btn" type="button">Clear Filters</button>
                 </div>
             </div>
         </section>
@@ -136,37 +138,37 @@
     </main>
 
     <!-- Modal for Event Details -->
-    <div id="event-detail-modal" class="modal-overlay">
+    <div id="event-detail-modal" class="modal-overlay" aria-modal="true" role="dialog" aria-labelledby="modal-title-el">
         <div class="modal-container anim-scale-in">
             <div class="modal-header">
-                <h3 class="modal-title">Event Sheet</h3>
-                <button class="modal-close"><i class="fas fa-times"></i></button>
+                <h3 class="modal-title" id="modal-title-el">Event Details</h3>
+                <button class="modal-close" aria-label="Close Details Modal" type="button"><i class="fas fa-times" aria-hidden="true"></i></button>
             </div>
             <div class="modal-body" style="padding: 0;">
                 <div class="zoom-container" style="height: 240px; width: 100%;">
-                    <img class="event-modal-img zoom-image" style="width: 100%; height: 100%; object-fit: cover;" src="" alt="">
+                    <img class="event-modal-img zoom-image" style="width: 100%; height: 100%; object-fit: cover;" src="" alt="Event banner image preview">
                 </div>
                 <div style="padding: var(--spacing-md);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-sm);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-sm); flex-wrap: wrap; gap: 10px;">
                         <span class="event-modal-category badge">Category</span>
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <div class="event-modal-ring-container"></div>
                             <span class="event-modal-seats-text font-semibold text-secondary" style="font-size: 0.85rem;">Seats Left</span>
                         </div>
                     </div>
-                    <h2 class="event-modal-title" style="margin-bottom: var(--spacing-sm); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.8px;">Event Title</h2>
+                    <h2 class="event-modal-title" style="margin-bottom: var(--spacing-sm); font-size: var(--font-h3); font-weight: 700; letter-spacing: -0.8px;">Event Title</h2>
                     <p class="event-modal-description" style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-size: 0.95rem; line-height: 1.5;">
                         Event Description text...
                     </p>
                     
-                    <div class="grid-2" style="gap: 15px; margin-bottom: var(--spacing-md); background: rgba(var(--primary-rgb), 0.02); border: 1px solid var(--border-color); padding: var(--spacing-sm); border-radius: var(--radius-md);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 15px; margin-bottom: var(--spacing-md); background: rgba(var(--primary-rgb), 0.02); border: 1px solid var(--border-color); padding: var(--spacing-sm); border-radius: var(--radius-md);">
                         <div>
-                            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px;"><i class="fas fa-calendar"></i> Date & Time</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px;"><i class="fas fa-calendar" aria-hidden="true"></i> Date & Time</div>
                             <div class="event-modal-date" style="font-size: 0.85rem; font-weight: 600; margin-top: 3px;">Thursday, Oct 12</div>
                             <div class="event-modal-time" style="font-size: 0.75rem; color: var(--text-secondary);">09:00 AM - 05:00 PM</div>
                         </div>
                         <div>
-                            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px;"><i class="fas fa-map-marker-alt"></i> Location</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px;"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Location</div>
                             <div class="event-modal-venue" style="font-size: 0.85rem; font-weight: 600; margin-top: 3px;">Main Hall</div>
                         </div>
                     </div>
@@ -188,32 +190,32 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-glass" data-modal-close="event-detail-modal">Close</button>
-                <button class="btn btn-primary event-modal-register-btn" style="flex-grow: 1;">Complete Seat Booking</button>
+                <button class="btn btn-glass" data-modal-close="event-detail-modal" type="button">Close</button>
+                <button class="btn btn-primary event-modal-register-btn" style="flex-grow: 1;" type="button">Complete Seat Booking</button>
             </div>
         </div>
     </div>
 
     <!-- Back to top -->
-    <button class="back-to-top" aria-label="Scroll Back To Top"><i class="fas fa-arrow-up"></i></button>
+    <button class="back-to-top" aria-label="Scroll Back To Top" type="button"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-waves"></div>
+    <footer aria-label="Footer Area">
+        <div class="footer-waves" aria-hidden="true"></div>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+                    <a href="index.html" class="logo" aria-label="NexEvent Home">
+                        <i class="fas fa-circle-nodes logo-icon" aria-hidden="true"></i> NexEvent
                     </a>
                     <p class="footer-description">
                         An advanced events dashboard connecting students with hackathons, debate forums, and athletic championships.
                     </p>
                     <div class="footer-socials">
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter Page"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram Page"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="GitHub Page"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn Page"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div>
@@ -237,7 +239,7 @@
                 <div>
                     <h3 class="footer-heading">College Nodes</h3>
                     <ul class="footer-links">
-                        <li><a href="https://github.com" target="_blank">Student Council</a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Student Council</a></li>
                         <li><a href="#">Tech Club Portal</a></li>
                         <li><a href="#">Sports Association</a></li>
                         <li><a href="#">Academic Senate</a></li>
@@ -264,7 +266,7 @@
     <script src="js/animation.js"></script>
     <script src="js/app.js"></script>
 
-    <!-- Page Specific Script -->
+    <!-- Page Specific Rendering Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const events = EventManager.loadEvents();
@@ -329,16 +331,16 @@
                                 <span class="badge badge-${ev.category}" style="position: absolute; top: 15px; left: 15px; font-size:0.68rem;">${ev.category}</span>
                                 <span class="badge badge-diff ${diffClass}" style="position: absolute; top: 15px; left: 110px;">${ev.difficulty}</span>
                                 <button class="btn btn-icon btn-glass" data-fav-toggle="${ev.id}" style="position: absolute; top: 15px; right: 15px; width: 38px; height: 38px;" aria-label="Favorite Event">
-                                    <i class="far fa-heart"></i>
+                                    <i class="far fa-heart" aria-hidden="true"></i>
                                 </button>
                             </div>
-                            <div style="padding: var(--spacing-sm);">
+                            <div style="padding: var(--spacing-sm); display: flex; flex-direction: column; flex-grow: 1;">
                                 <h3 style="font-size: 1.2rem; margin-bottom: 8px; font-weight: 600; min-height: 52px; line-height: 1.3; letter-spacing: -0.5px;">${ev.title}</h3>
                                 
-                                <div style="font-size: 0.82rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--spacing-sm);">
-                                    <div><i class="far fa-calendar-alt text-primary" style="width: 18px;"></i> ${eventDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
-                                    <div><i class="far fa-clock text-primary" style="width: 18px;"></i> ${ev.time}</div>
-                                    <div><i class="fas fa-map-marker-alt text-primary" style="width: 18px;"></i> ${ev.venue}</div>
+                                <div style="font-size: 0.82rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--spacing-sm); flex-grow: 1;">
+                                    <div><i class="far fa-calendar-alt text-primary" style="width: 18px;" aria-hidden="true"></i> ${eventDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
+                                    <div><i class="far fa-clock text-primary" style="width: 18px;" aria-hidden="true"></i> ${ev.time}</div>
+                                    <div><i class="fas fa-map-marker-alt text-primary" style="width: 18px;" aria-hidden="true"></i> ${ev.venue}</div>
                                 </div>
                                 
                                 <div class="event-countdown font-semibold" data-date="${ev.date}" style="margin: 12px 0; font-size: 0.78rem; display: flex; gap: 8px; background: rgba(var(--primary-rgb), 0.02); border: 1px solid var(--border-color); padding: 10px; border-radius: var(--radius-sm); justify-content: center; align-items: center; color: var(--text-secondary);">
@@ -357,8 +359,8 @@
                                         </span>
                                     </div>
                                     <div style="display: flex; gap: 8px;">
-                                        <button class="btn btn-glass" style="padding: 0.5rem 1rem; font-size: 0.8rem;" onclick="openDetailModal('${ev.id}')">Details</button>
-                                        <button class="btn btn-primary btn-magnetic" style="padding: 0.5rem 1rem; font-size: 0.8rem;" ${ev.seatsLeft === 0 ? 'disabled' : ''} onclick="registerEvent('${ev.id}')">
+                                        <button class="btn btn-glass" style="padding: 0.5rem 1rem; font-size: 0.8rem; min-height:44px;" onclick="openDetailModal('${ev.id}')" type="button">Details</button>
+                                        <button class="btn btn-primary btn-magnetic" style="padding: 0.5rem 1rem; font-size: 0.8rem; min-height:44px;" ${ev.seatsLeft === 0 ? 'disabled' : ''} onclick="registerEvent('${ev.id}')" type="button">
                                             Book
                                         </button>
                                     </div>
@@ -426,7 +428,6 @@
                 });
             }
 
-            // Sync prefill from index query params if any
             const urlParams = new URLSearchParams(window.location.search);
             const catQuery = urlParams.get('category');
             if (catQuery) {

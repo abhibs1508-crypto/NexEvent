@@ -16,27 +16,27 @@
 <body>
 
     <!-- Scroll Progress Bar -->
-    <div class="scroll-progress-container">
+    <div class="scroll-progress-container" aria-hidden="true">
         <div class="scroll-progress-bar"></div>
     </div>
 
     <!-- Preloader -->
     <div class="preloader">
-        <div class="spinner"></div>
+        <div class="spinner" aria-hidden="true"></div>
         <div class="preloader-text">PREPARING PORTAL</div>
     </div>
 
     <!-- Aurora backgrounds -->
-    <div class="aurora-container">
+    <div class="aurora-container" aria-hidden="true">
         <div class="aurora-mesh aurora-1 animate-aurora-1"></div>
         <div class="aurora-mesh aurora-2 animate-aurora-2"></div>
     </div>
 
     <!-- Header / Sticky Glass Navbar -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main Navigation">
         <div class="container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+            <a href="index.html" class="logo" aria-label="NexEvent Home">
+                <i class="fas fa-circle-nodes logo-icon" aria-hidden="true"></i> NexEvent
             </a>
             
             <ul class="nav-menu">
@@ -48,14 +48,14 @@
             </ul>
 
             <div class="nav-actions">
-                <button class="theme-toggle" aria-label="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
+                <button class="theme-toggle" aria-label="Toggle Color Theme" type="button">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                    <i class="fas fa-sun" aria-hidden="true"></i>
                 </button>
-                <button class="hamburger" aria-label="Mobile Navigation Toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="hamburger" aria-label="Toggle Mobile Navigation Drawer" aria-expanded="false" type="button">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </button>
             </div>
         </div>
@@ -69,8 +69,8 @@
                 
                 <!-- Left Column Info Panel -->
                 <div style="position: sticky; top: 100px;">
-                    <span class="badge badge-academic"><i class="fas fa-ticket"></i> Seat Reservation</span>
-                    <h1 style="font-size: 2.8rem; margin-top: var(--spacing-xs); letter-spacing: -1.2px; font-weight: 700;">Seat Reservation</h1>
+                    <span class="badge badge-academic"><i class="fas fa-ticket" aria-hidden="true"></i> Seat Reservation</span>
+                    <h1 style="font-size: var(--font-h1); margin-top: var(--spacing-xs); letter-spacing: -1.2px; font-weight: 700;">Seat Reservation</h1>
                     <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-size: 0.95rem;">
                         Lock down your seat in seconds. Profile information is stored securely in your local browser profile (`localStorage`) for quick cancellations.
                     </p>
@@ -79,7 +79,7 @@
                     <div class="glass-panel" style="padding: var(--spacing-sm); display: flex; flex-direction: column; gap: 15px;">
                         <div style="display: flex; gap: 12px; align-items: flex-start;">
                             <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: rgba(52, 211, 153, 0.08); color: var(--secondary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">
-                                <i class="fas fa-circle-check"></i>
+                                <i class="fas fa-circle-check" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h4 style="font-size: 0.9rem; font-weight: 600;">Instant Seat Claims</h4>
@@ -88,7 +88,7 @@
                         </div>
                         <div style="display: flex; gap: 12px; align-items: flex-start;">
                             <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: rgba(59, 130, 246, 0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">
-                                <i class="fas fa-rotate"></i>
+                                <i class="fas fa-rotate" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h4 style="font-size: 0.9rem; font-weight: 600;">Refundable Reserval</h4>
@@ -100,7 +100,7 @@
 
                 <!-- Right Column Form Panel -->
                 <div class="glass-panel card-glow" style="padding: var(--spacing-lg); width: 100%;">
-                    <form id="event-registration-form" novalidate>
+                    <form id="event-registration-form" novalidate aria-label="Event Seat Booking Form">
                         
                         <div class="form-group">
                             <label class="form-label" for="eventId">Select Target Event *</label>
@@ -108,33 +108,33 @@
                                 <select name="eventId" id="eventId" class="form-input" style="padding-right: 35px; cursor: pointer; appearance: none; -webkit-appearance: none;">
                                     <option value="" disabled selected>Choose an event...</option>
                                 </select>
-                                <i class="fas fa-chevron-down" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none;"></i>
+                                <i class="fas fa-chevron-down" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none;" aria-hidden="true"></i>
                             </div>
                         </div>
 
-                        <div class="grid-2" style="gap: 15px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 15px;">
                             <div class="form-group">
                                 <label class="form-label" for="studentName">Full Student Name *</label>
-                                <input type="text" name="studentName" id="studentName" class="form-input" placeholder="e.g. Abhi Kumar">
+                                <input type="text" name="studentName" id="studentName" class="form-input" placeholder="e.g. Abhi Kumar" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="email">College Email *</label>
-                                <input type="email" name="email" id="email" class="form-input" placeholder="e.g. name@domain.com">
+                                <input type="email" name="email" id="email" class="form-input" placeholder="e.g. name@domain.com" required>
                             </div>
                         </div>
 
-                        <div class="grid-2" style="gap: 15px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 15px;">
                             <div class="form-group">
                                 <label class="form-label" for="enrollmentNo">Enrollment ID *</label>
-                                <input type="text" name="enrollmentNo" id="enrollmentNo" class="form-input" placeholder="e.g. 21CS0451">
+                                <input type="text" name="enrollmentNo" id="enrollmentNo" class="form-input" placeholder="e.g. 21CS0451" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="phone">Phone Number *</label>
-                                <input type="tel" name="phone" id="phone" class="form-input" placeholder="e.g. 9876543210">
+                                <input type="tel" name="phone" id="phone" class="form-input" placeholder="e.g. 9876543210" required>
                             </div>
                         </div>
 
-                        <div class="grid-3" style="gap: 12px; margin-bottom: var(--spacing-md);">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: 12px; margin-bottom: var(--spacing-md);">
                             <div class="form-group">
                                 <label class="form-label" for="department">Department *</label>
                                 <div style="position: relative;">
@@ -146,7 +146,7 @@
                                         <option value="CE">Civil Eng (CE)</option>
                                         <option value="EE">Electrical (EE)</option>
                                     </select>
-                                    <i class="fas fa-chevron-down" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 0.8rem;"></i>
+                                    <i class="fas fa-chevron-down" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 0.8rem;" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -163,7 +163,7 @@
                                         <option value="7">7th Sem</option>
                                         <option value="8">8th Sem</option>
                                     </select>
-                                    <i class="fas fa-chevron-down" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 0.8rem;"></i>
+                                    <i class="fas fa-chevron-down" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 0.8rem;" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -175,14 +175,14 @@
                                         <option value="female">Female</option>
                                         <option value="other">Other</option>
                                     </select>
-                                    <i class="fas fa-chevron-down" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 0.8rem;"></i>
+                                    <i class="fas fa-chevron-down" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 0.8rem;" aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>
 
-                        <div style="display: flex; gap: 15px; border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm); margin-top: var(--spacing-sm);">
-                            <button type="reset" class="btn btn-glass" style="width: 120px;">Reset</button>
-                            <button type="submit" class="btn btn-primary btn-magnetic" style="flex-grow: 1;">Complete Registration</button>
+                        <div style="display: flex; gap: 15px; border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm); margin-top: var(--spacing-sm); flex-wrap: wrap;">
+                            <button type="reset" class="btn btn-glass" style="flex-grow: 1; min-width: 100px;">Reset</button>
+                            <button type="submit" class="btn btn-primary btn-magnetic" style="flex-grow: 2; min-width: 180px;">Complete Registration</button>
                         </div>
 
                     </form>
@@ -194,19 +194,18 @@
     </main>
 
     <!-- Success Modal Overlay -->
-    <div id="success-modal" class="modal-overlay">
+    <div id="success-modal" class="modal-overlay" aria-modal="true" role="dialog" aria-labelledby="success-heading">
         <div class="modal-container anim-scale-in" style="max-width: 450px; text-align: center;">
             <div class="modal-body" style="padding: var(--spacing-xl);">
                 
-                <!-- Success check drawing -->
-                <div style="width: 80px; height: 80px; margin: 0 auto 20px;">
+                <div style="width: 80px; height: 80px; margin: 0 auto 20px;" aria-hidden="true">
                     <svg viewBox="0 0 52 52" style="width: 100%; height: 100%; border-radius: 50%; display: block; stroke-width: 2; stroke: var(--secondary); stroke-miterlimit: 10;">
                         <circle cx="26" cy="26" r="25" fill="none" style="stroke-dasharray: 166; stroke-dashoffset: 166; stroke-width: 2.5; stroke-miterlimit: 10; stroke: var(--secondary); animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;"/>
                         <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" style="stroke-dasharray: 48; stroke-dashoffset: 48; stroke-width: 3.5; stroke-linecap: round; stroke-miterlimit: 10; stroke: var(--secondary); animation: drawCheck 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;"/>
                     </svg>
                 </div>
 
-                <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.8px;">Reservation Logged!</h2>
+                <h2 id="success-heading" style="font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.8px;">Reservation Logged!</h2>
                 <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin-bottom: var(--spacing-md);">
                     Your seat booking was successful. An entry has been logged to your registrations panel.
                 </p>
@@ -217,31 +216,31 @@
                     <div><strong>Student:</strong> <span id="success-student-name">Student Name</span></div>
                 </div>
 
-                <button class="btn btn-primary w-full" id="success-close-btn">View My Dashboard</button>
+                <button class="btn btn-primary w-full" id="success-close-btn" type="button">View My Dashboard</button>
             </div>
         </div>
     </div>
 
     <!-- Back to top -->
-    <button class="back-to-top" aria-label="Scroll Back To Top"><i class="fas fa-arrow-up"></i></button>
+    <button class="back-to-top" aria-label="Scroll Back To Top" type="button"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-waves"></div>
+    <footer aria-label="Footer Area">
+        <div class="footer-waves" aria-hidden="true"></div>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+                    <a href="index.html" class="logo" aria-label="NexEvent Home">
+                        <i class="fas fa-circle-nodes logo-icon" aria-hidden="true"></i> NexEvent
                     </a>
                     <p class="footer-description">
                         An advanced events dashboard connecting students with hackathons, debate forums, and athletic championships.
                     </p>
                     <div class="footer-socials">
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter Page"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram Page"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="GitHub Page"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn Page"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div>
@@ -265,7 +264,7 @@
                 <div>
                     <h3 class="footer-heading">College Nodes</h3>
                     <ul class="footer-links">
-                        <li><a href="https://github.com" target="_blank">Student Council</a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Student Council</a></li>
                         <li><a href="#">Tech Club Portal</a></li>
                         <li><a href="#">Sports Association</a></li>
                         <li><a href="#">Academic Senate</a></li>
@@ -379,7 +378,6 @@
             }
         });
 
-        // Falling confetti elements
         function triggerConfetti() {
             const count = 75;
             const container = document.body;

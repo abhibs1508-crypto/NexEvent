@@ -1,6 +1,6 @@
 /* 
    File: js/app.js
-   Purpose: Global orchestrator. Controls loading transitions, toast banners, progress bars, navigation locks, and bookmark favorites.
+   Purpose: Global orchestrator. Controls loading transitions, toast alerts, progress bars, navigation locks, and body scroll locks when drawer is active.
 */
 
 const App = (function() {
@@ -92,16 +92,14 @@ const App = (function() {
                 <div class="toast-title">${title}</div>
                 <div class="toast-message">${message}</div>
             </div>
-            <button class="toast-close" style="background:none;border:none;color:var(--text-muted);cursor:pointer;"><i class="fas fa-times"></i></button>
+            <button class="toast-close" style="background:none;border:none;color:var(--text-muted);cursor:pointer;min-height:30px;min-width:30px;" aria-label="Close Notification"><i class="fas fa-times"></i></button>
         `;
 
         container.appendChild(toast);
 
-        // Bind manual dismiss button
         const closeBtn = toast.querySelector('.toast-close');
         closeBtn.addEventListener('click', () => dismissToast(toast));
 
-        // Auto dismiss timer
         const timer = setTimeout(() => {
             dismissToast(toast);
         }, duration);
@@ -122,7 +120,7 @@ const App = (function() {
         });
     }
 
-    // Dismiss preloader beautiful scale reveal
+    // Dismiss preloader
     function initPreloader() {
         const preloader = document.querySelector('.preloader');
         if (preloader) {
@@ -136,7 +134,7 @@ const App = (function() {
         }
     }
 
-    // Scroll metrics
+    // Back to top click actions
     function initBackToTop() {
         const btn = document.querySelector('.back-to-top');
         if (!btn) return;
@@ -157,7 +155,7 @@ const App = (function() {
         });
     }
 
-    // Scroll progress tracker
+    // Scroll Progress bar tracker
     function initScrollProgress() {
         const bar = document.querySelector('.scroll-progress-bar');
         if (!bar) return;
@@ -169,7 +167,7 @@ const App = (function() {
         });
     }
 
-    // Sticky navbar
+    // Navbar Scroll transformations
     function initNavbarScroll() {
         const nav = document.querySelector('.navbar');
         if (!nav) return;
@@ -183,27 +181,37 @@ const App = (function() {
         });
     }
 
-    // Mobile Hamburger
+    // Hamburger Mobile Menu triggers with scroll lock
     function initMobileMenu() {
         const hamburger = document.querySelector('.hamburger');
         const menu = document.querySelector('.nav-menu');
         
         if (hamburger && menu) {
             hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('is-active');
+                const isActive = hamburger.classList.toggle('is-active');
                 menu.classList.toggle('is-active');
+                
+                // Prevent body scroll when overlay drawer is active
+                if (isActive) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
             });
 
+            // Close menu and release scroll lock if a link is clicked
             const links = menu.querySelectorAll('.nav-link');
             links.forEach(link => {
                 link.addEventListener('click', () => {
                     hamburger.classList.remove('is-active');
                     menu.classList.remove('is-active');
+                    document.body.style.overflow = '';
                 });
             });
         }
     }
 
+    // Setup basic dynamic layout features
     function init() {
         initPreloader();
         initBackToTop();
@@ -211,7 +219,7 @@ const App = (function() {
         initNavbarScroll();
         initMobileMenu();
 
-        // Delegation favorites toggle
+        // Favorite toggle binding delegation
         document.addEventListener('click', (e) => {
             const btn = e.target.closest('[data-fav-toggle]');
             if (btn) {

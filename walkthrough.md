@@ -43,3 +43,5 @@ graph TD
   - Tablets (768px - 1024px)
   - Mobile viewports (320px - 480px)
   - Foldable devices (280px+)
+- **Accessibility Audit**: Verified visible keyboard focus indicators (`:focus-visible`) across all link/button pathways and added appropriate descriptive `aria-label` tags for screen readers.
+- **iOS Zoom Verification**: Verified email/phone text field focuses do not trigger automatic screen zooming on iOS viewports.

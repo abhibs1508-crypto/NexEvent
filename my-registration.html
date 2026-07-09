@@ -16,27 +16,27 @@
 <body>
 
     <!-- Scroll Progress Bar -->
-    <div class="scroll-progress-container">
+    <div class="scroll-progress-container" aria-hidden="true">
         <div class="scroll-progress-bar"></div>
     </div>
 
     <!-- Preloader -->
     <div class="preloader">
-        <div class="spinner"></div>
+        <div class="spinner" aria-hidden="true"></div>
         <div class="preloader-text">SYNCING PROFILE</div>
     </div>
 
     <!-- Aurora backgrounds -->
-    <div class="aurora-container">
+    <div class="aurora-container" aria-hidden="true">
         <div class="aurora-mesh aurora-1 animate-aurora-1"></div>
         <div class="aurora-mesh aurora-2 animate-aurora-2"></div>
     </div>
 
     <!-- Header / Sticky Glass Navbar -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main Navigation">
         <div class="container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+            <a href="index.html" class="logo" aria-label="NexEvent Home">
+                <i class="fas fa-circle-nodes logo-icon" aria-hidden="true"></i> NexEvent
             </a>
             
             <ul class="nav-menu">
@@ -48,14 +48,14 @@
             </ul>
 
             <div class="nav-actions">
-                <button class="theme-toggle" aria-label="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
+                <button class="theme-toggle" aria-label="Toggle Color Theme" type="button">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                    <i class="fas fa-sun" aria-hidden="true"></i>
                 </button>
-                <button class="hamburger" aria-label="Mobile Navigation Toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="hamburger" aria-label="Toggle Mobile Navigation Drawer" aria-expanded="false" type="button">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </button>
             </div>
         </div>
@@ -67,8 +67,8 @@
         <!-- Header Banner Section -->
         <section class="section-padding anim-fade-in-up" style="padding-top: 100px; padding-bottom: var(--spacing-sm);">
             <div class="container text-center">
-                <span class="badge badge-tech"><i class="fas fa-user-circle"></i> Student Portal</span>
-                <h1 style="font-size: 2.8rem; margin-top: var(--spacing-xs); letter-spacing: -1.2px; font-weight: 700;">My Bookings</h1>
+                <span class="badge badge-tech"><i class="fas fa-user-circle" aria-hidden="true"></i> Student Portal</span>
+                <h1 style="font-size: var(--font-h1); margin-top: var(--spacing-xs); letter-spacing: -1.2px; font-weight: 700;">My Bookings</h1>
                 <p style="color: var(--text-secondary); max-width: 500px; margin: 8px auto 0; font-size: 0.98rem;">
                     Manage active tickets, check event countdowns, or cancel seat reservations.
                 </p>
@@ -76,12 +76,12 @@
         </section>
 
         <!-- Stats Grid Section -->
-        <section class="reveal-on-scroll" style="margin-bottom: var(--spacing-lg);">
+        <section class="reveal-on-scroll" style="margin-bottom: var(--spacing-lg);" aria-label="Booking Statistics Summary">
             <div class="container">
-                <div class="grid-4">
+                <div class="grid-4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: var(--spacing-sm);">
                     <!-- Stat Card 1 -->
                     <div class="glass-panel" style="padding: var(--spacing-sm); display: flex; align-items: center; gap: 15px;">
-                        <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(59, 130, 246, 0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                        <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(59, 130, 246, 0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;" aria-hidden="true">
                             <i class="fas fa-ticket-alt"></i>
                         </div>
                         <div>
@@ -91,7 +91,7 @@
                     </div>
                     <!-- Stat Card 2 -->
                     <div class="glass-panel" style="padding: var(--spacing-sm); display: flex; align-items: center; gap: 15px;">
-                        <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.08); color: #F59E0B; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                        <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.08); color: #F59E0B; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;" aria-hidden="true">
                             <i class="fas fa-hourglass-start"></i>
                         </div>
                         <div>
@@ -101,7 +101,7 @@
                     </div>
                     <!-- Stat Card 3 -->
                     <div class="glass-panel" style="padding: var(--spacing-sm); display: flex; align-items: center; gap: 15px;">
-                        <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(16, 185, 129, 0.08); color: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                        <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(16, 185, 129, 0.08); color: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;" aria-hidden="true">
                             <i class="fas fa-circle-check"></i>
                         </div>
                         <div>
@@ -111,7 +111,7 @@
                     </div>
                     <!-- Stat Card 4 -->
                     <div class="glass-panel" style="padding: var(--spacing-sm); display: flex; align-items: center; gap: 15px;">
-                        <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(239, 68, 68, 0.08); color: var(--danger); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                        <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(239, 68, 68, 0.08); color: var(--danger); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;" aria-hidden="true">
                             <i class="fas fa-ban"></i>
                         </div>
                         <div>
@@ -124,25 +124,27 @@
         </section>
 
         <!-- Dashboard Filtering Panel -->
-        <section class="reveal-on-scroll" style="margin-bottom: var(--spacing-md);">
+        <section class="reveal-on-scroll" style="margin-bottom: var(--spacing-md);" aria-label="Search and Filter Registrations">
             <div class="container">
                 <div class="glass-panel" style="padding: var(--spacing-sm); display: flex; flex-direction: column; gap: var(--spacing-sm);">
                     <div style="display: flex; gap: 15px; flex-wrap: wrap;">
                         
                         <!-- Search Box -->
                         <div style="flex-grow: 1; position: relative; min-width: 250px;">
-                            <i class="fas fa-search" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1rem;"></i>
+                            <label for="reg-search" class="sr-only" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;">Search registrations</label>
+                            <i class="fas fa-search" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1rem;" aria-hidden="true"></i>
                             <input type="text" id="reg-search" class="form-input" placeholder="Search by event, student, enrollment ID..." style="padding-left: 45px; width: 100%;">
                         </div>
 
                         <!-- Status Filter Dropdown -->
                         <div style="width: 200px; position: relative;">
+                            <label for="reg-filter-status" class="sr-only" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;">Filter by status</label>
                             <select id="reg-filter-status" class="form-input" style="padding-right: 35px; cursor: pointer; appearance: none; -webkit-appearance: none;">
                                 <option value="all">All Registrations</option>
                                 <option value="registered">Active</option>
                                 <option value="cancelled">Cancelled</option>
                             </select>
-                            <i class="fas fa-chevron-down" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none;"></i>
+                            <i class="fas fa-chevron-down" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none;" aria-hidden="true"></i>
                         </div>
 
                     </div>
@@ -151,10 +153,14 @@
         </section>
 
         <!-- Dashboard Table Content -->
-        <section class="section-padding" style="padding-top: 0;">
+        <section class="section-padding" style="padding-top: 0;" aria-label="Registrations Table Results">
             <div class="container">
                 
                 <div class="table-container" id="reg-table-container">
+                    <!-- Added Swipe Help Indicator for Mobile Screen Sizes -->
+                    <div style="font-size:0.75rem; color:var(--text-muted); text-align:right; margin-bottom: 5px; display:block; padding-right:10px;" aria-hidden="true">
+                        <i class="fas fa-right-left"></i> Scroll horizontally to view actions
+                    </div>
                     <table class="responsive-table">
                         <thead>
                             <tr>
@@ -174,12 +180,12 @@
 
                 <!-- Empty State -->
                 <div id="no-registrations-message" class="glass-panel text-center" style="display: none; padding: var(--spacing-xl); text-align: center;">
-                    <div style="font-size: 3.5rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);"><i class="fas fa-folder-open"></i></div>
+                    <div style="font-size: 3.5rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);"><i class="fas fa-folder-open" aria-hidden="true"></i></div>
                     <h3>No Registrations Logged</h3>
                     <p style="color: var(--text-secondary); max-width: 400px; margin: 8px auto 0;">
                         You have not registered for any events yet. Check our events catalog and find something exciting!
                     </p>
-                    <a href="events.html" class="btn btn-primary btn-magnetic" style="margin-top: 15px;"><i class="fas fa-search-plus"></i> Find Events</a>
+                    <a href="events.html" class="btn btn-primary btn-magnetic" style="margin-top: 15px;"><i class="fas fa-search-plus" aria-hidden="true"></i> Find Events</a>
                 </div>
 
             </div>
@@ -188,11 +194,11 @@
     </main>
 
     <!-- Cancellation Confirmation Modal -->
-    <div id="cancel-confirm-modal" class="modal-overlay">
+    <div id="cancel-confirm-modal" class="modal-overlay" aria-modal="true" role="dialog" aria-labelledby="cancel-modal-title">
         <div class="modal-container anim-scale-in" style="max-width: 450px;">
             <div class="modal-header" style="background: rgba(239, 68, 68, 0.03);">
-                <h3 class="modal-title text-danger"><i class="fas fa-triangle-exclamation"></i> Cancel Seat Booking</h3>
-                <button class="modal-close"><i class="fas fa-times"></i></button>
+                <h3 class="modal-title text-danger" id="cancel-modal-title"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i> Cancel Seat Booking</h3>
+                <button class="modal-close" aria-label="Close Cancel Modal" type="button"><i class="fas fa-times" aria-hidden="true"></i></button>
             </div>
             <div class="modal-body" style="padding: var(--spacing-md);">
                 <p style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.5; margin-bottom: var(--spacing-sm);">
@@ -204,32 +210,32 @@
                 </div>
             </div>
             <div class="modal-footer" style="padding: var(--spacing-sm) var(--spacing-md);">
-                <button class="btn btn-glass" data-modal-close="cancel-confirm-modal">Keep Seat</button>
-                <button class="btn btn-danger" id="cancel-confirm-btn">Confirm Cancellation</button>
+                <button class="btn btn-glass" data-modal-close="cancel-confirm-modal" type="button">Keep Seat</button>
+                <button class="btn btn-danger" id="cancel-confirm-btn" type="button">Confirm Cancellation</button>
             </div>
         </div>
     </div>
 
     <!-- Back to top -->
-    <button class="back-to-top" aria-label="Scroll Back To Top"><i class="fas fa-arrow-up"></i></button>
+    <button class="back-to-top" aria-label="Scroll Back To Top" type="button"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-waves"></div>
+    <footer aria-label="Footer Area">
+        <div class="footer-waves" aria-hidden="true"></div>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+                    <a href="index.html" class="logo" aria-label="NexEvent Home">
+                        <i class="fas fa-circle-nodes logo-icon" aria-hidden="true"></i> NexEvent
                     </a>
                     <p class="footer-description">
                         An advanced events dashboard connecting students with hackathons, debate forums, and athletic championships.
                     </p>
                     <div class="footer-socials">
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter Page"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram Page"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="GitHub Page"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn Page"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div>
@@ -253,7 +259,7 @@
                 <div>
                     <h3 class="footer-heading">College Nodes</h3>
                     <ul class="footer-links">
-                        <li><a href="https://github.com" target="_blank">Student Council</a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Student Council</a></li>
                         <li><a href="#">Tech Club Portal</a></li>
                         <li><a href="#">Sports Association</a></li>
                         <li><a href="#">Academic Senate</a></li>
@@ -358,7 +364,7 @@
                             <td style="font-size: 0.85rem; color: var(--text-secondary);">${dateStr}</td>
                             <td><span class="badge ${statusClass} badge-status">${reg.status}</span></td>
                             <td style="text-align: right;">
-                                <button class="btn ${btnClass}" style="padding: 0.45rem 0.9rem; font-size: 0.78rem;" ${btnDisabled} onclick="triggerCancelModal('${reg.id}', '${reg.eventName.replace(/'/g, "\\'")}')">
+                                <button class="btn ${btnClass}" style="padding: 0.45rem 0.9rem; font-size: 0.78rem; min-height:44px;" ${btnDisabled} onclick="triggerCancelModal('${reg.id}', '${reg.eventName.replace(/'/g, "\\'")}')" type="button">
                                     Cancel
                                 </button>
                             </td>

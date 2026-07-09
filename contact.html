@@ -16,27 +16,27 @@
 <body>
 
     <!-- Scroll Progress Bar -->
-    <div class="scroll-progress-container">
+    <div class="scroll-progress-container" aria-hidden="true">
         <div class="scroll-progress-bar"></div>
     </div>
 
     <!-- Preloader -->
     <div class="preloader">
-        <div class="spinner"></div>
+        <div class="spinner" aria-hidden="true"></div>
         <div class="preloader-text">NEXEVENT DIRECTORY</div>
     </div>
 
     <!-- Aurora backgrounds -->
-    <div class="aurora-container">
+    <div class="aurora-container" aria-hidden="true">
         <div class="aurora-mesh aurora-1 animate-aurora-1"></div>
         <div class="aurora-mesh aurora-2 animate-aurora-2"></div>
     </div>
 
     <!-- Header / Sticky Glass Navbar -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main Navigation">
         <div class="container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+            <a href="index.html" class="logo" aria-label="NexEvent Home">
+                <i class="fas fa-circle-nodes logo-icon" aria-hidden="true"></i> NexEvent
             </a>
             
             <ul class="nav-menu">
@@ -48,14 +48,14 @@
             </ul>
 
             <div class="nav-actions">
-                <button class="theme-toggle" aria-label="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
+                <button class="theme-toggle" aria-label="Toggle Color Theme" type="button">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                    <i class="fas fa-sun" aria-hidden="true"></i>
                 </button>
-                <button class="hamburger" aria-label="Mobile Navigation Toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="hamburger" aria-label="Toggle Mobile Navigation Drawer" aria-expanded="false" type="button">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </button>
             </div>
         </div>
@@ -67,8 +67,8 @@
         <!-- Header Banner Section -->
         <section class="section-padding anim-fade-in-up" style="padding-top: 100px; padding-bottom: var(--spacing-sm);">
             <div class="container text-center">
-                <span class="badge badge-cultural"><i class="fas fa-headset text-secondary"></i> Support Node</span>
-                <h1 style="font-size: 2.8rem; margin-top: var(--spacing-xs); letter-spacing: -1.2px; font-weight: 700;">Get in Touch</h1>
+                <span class="badge badge-cultural"><i class="fas fa-headset text-secondary" aria-hidden="true"></i> Support Node</span>
+                <h1 style="font-size: var(--font-h1); margin-top: var(--spacing-xs); letter-spacing: -1.2px; font-weight: 700;">Get in Touch</h1>
                 <p style="color: var(--text-secondary); max-width: 500px; margin: 8px auto 0; font-size: 0.98rem;">
                     Have questions about registration slots, coordinate mapping, or sponsorships? Drop us a query.
                 </p>
@@ -80,31 +80,31 @@
             <div class="container grid-2" style="align-items: flex-start; gap: 40px;">
                 
                 <!-- Left Column Form Panel -->
-                <div class="glass-panel card-glow" style="padding: var(--spacing-lg);">
+                <div class="glass-panel card-glow" style="padding: var(--spacing-lg); width: 100%;">
                     <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm); font-weight: 700; letter-spacing:-0.5px;">Send Us a Message</h2>
-                    <form id="contact-form" novalidate>
+                    <form id="contact-form" novalidate aria-label="Contact support form">
                         
                         <div class="form-group">
                             <label class="form-label" for="contact-name">Full Name *</label>
-                            <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Abhi Kumar">
+                            <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Abhi Kumar" required>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label" for="contact-email">Email Address *</label>
-                            <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. name@domain.com">
+                            <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. name@domain.com" required>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label" for="contact-subject">Subject *</label>
-                            <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="e.g. Registration Query">
+                            <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="e.g. Registration Query" required>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label" for="contact-message">Your Message *</label>
-                            <textarea id="contact-message" name="message" class="form-input" placeholder="Describe your question or issue..." style="min-height: 120px; resize: vertical;"></textarea>
+                            <textarea id="contact-message" name="message" class="form-input" placeholder="Describe your question or issue..." style="min-height: 120px; resize: vertical;" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-magnetic w-full" style="margin-top: 10px;">Send Query <i class="fas fa-paper-plane" style="margin-left: 8px;"></i></button>
+                        <button type="submit" class="btn btn-primary btn-magnetic w-full" style="margin-top: 10px;">Send Query <i class="fas fa-paper-plane" style="margin-left: 8px;" aria-hidden="true"></i></button>
 
                     </form>
                 </div>
@@ -117,7 +117,7 @@
                         
                         <!-- Location Detail -->
                         <div style="display: flex; gap: 15px; align-items: flex-start;">
-                            <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(59, 130, 246, 0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                            <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(59, 130, 246, 0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;" aria-hidden="true">
                                 <i class="fas fa-map-marked-alt"></i>
                             </div>
                             <div>
@@ -130,7 +130,7 @@
 
                         <!-- Mail Detail -->
                         <div style="display: flex; gap: 15px; align-items: flex-start;">
-                            <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(52, 211, 153, 0.08); color: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                            <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(52, 211, 153, 0.08); color: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;" aria-hidden="true">
                                 <i class="fas fa-envelope-open-text"></i>
                             </div>
                             <div>
@@ -141,7 +141,7 @@
 
                         <!-- Phone Detail -->
                         <div style="display: flex; gap: 15px; align-items: flex-start;">
-                            <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.08); color: #F59E0B; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                            <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.08); color: #F59E0B; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;" aria-hidden="true">
                                 <i class="fas fa-phone-volume"></i>
                             </div>
                             <div>
@@ -154,7 +154,7 @@
 
                     <!-- Embedded Map Placeholder -->
                     <div class="glass-panel card-glow" style="padding: 10px; height: 210px; overflow: hidden; display: flex; flex-direction: column;">
-                        <div style="flex-grow: 1; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-primary); position: relative; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--border-color);">
+                        <div style="flex-grow: 1; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-primary); position: relative; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--border-color);" aria-hidden="true">
                             <!-- Aesthetic SVG Map Graphic -->
                             <svg viewBox="0 0 400 180" style="width: 100%; height: 100%; opacity: 0.85;">
                                 <path d="M 0 40 L 400 40 M 0 100 L 400 100 M 0 150 L 400 150 M 120 0 L 120 180 M 280 0 L 280 180" stroke="var(--border-color)" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
@@ -173,25 +173,25 @@
     </main>
 
     <!-- Back to top -->
-    <button class="back-to-top" aria-label="Scroll Back To Top"><i class="fas fa-arrow-up"></i></button>
+    <button class="back-to-top" aria-label="Scroll Back To Top" type="button"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-waves"></div>
+    <footer aria-label="Footer Area">
+        <div class="footer-waves" aria-hidden="true"></div>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+                    <a href="index.html" class="logo" aria-label="NexEvent Home">
+                        <i class="fas fa-circle-nodes logo-icon" aria-hidden="true"></i> NexEvent
                     </a>
                     <p class="footer-description">
                         An advanced events dashboard connecting students with hackathons, debate forums, and athletic championships.
                     </p>
                     <div class="footer-socials">
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter Page"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram Page"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="GitHub Page"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn Page"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div>
@@ -215,7 +215,7 @@
                 <div>
                     <h3 class="footer-heading">College Nodes</h3>
                     <ul class="footer-links">
-                        <li><a href="https://github.com" target="_blank">Student Council</a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Student Council</a></li>
                         <li><a href="#">Tech Club Portal</a></li>
                         <li><a href="#">Sports Association</a></li>
                         <li><a href="#">Academic Senate</a></li>

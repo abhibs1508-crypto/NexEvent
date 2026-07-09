@@ -1,6 +1,6 @@
 /* 
    File: css/components.css
-   Purpose: Modular styling definitions for premium UI components. Includes advanced glass cards, seats-left progress rings, buttons, forms, tables, modals, and toasts.
+   Purpose: Modular styling definitions for premium UI components. Optimized for flexible auto-fit grids, safe touch targets, iOS input scaling, and modal scroll boundaries.
 */
 
 /* --- 1. Awwwards-Level Button Architecture --- */
@@ -13,6 +13,8 @@
     font-weight: 500;
     font-size: 0.92rem;
     padding: 0.85rem 1.75rem;
+    min-height: 44px; /* Accessible minimum touch size */
+    min-width: 44px;
     border-radius: var(--radius-md);
     border: 1px solid transparent;
     cursor: pointer;
@@ -33,7 +35,6 @@
     color: var(--white);
     box-shadow: 0 8px 24px -6px rgba(var(--primary-rgb), 0.3);
 }
-
 .btn-primary:hover {
     box-shadow: 0 16px 32px -8px rgba(var(--primary-rgb), 0.45), 0 0 15px rgba(var(--primary-rgb), 0.2);
 }
@@ -43,7 +44,6 @@
     color: var(--white);
     box-shadow: 0 8px 24px -6px rgba(16, 185, 129, 0.3);
 }
-
 .btn-secondary:hover {
     box-shadow: 0 16px 32px -8px rgba(16, 185, 129, 0.45);
 }
@@ -56,7 +56,6 @@
     -webkit-backdrop-filter: blur(16px);
     box-shadow: var(--glass-shadow);
 }
-
 .btn-glass:hover {
     background: rgba(var(--primary-rgb), 0.08);
     border-color: rgba(var(--primary-rgb), 0.25);
@@ -68,21 +67,12 @@
     color: var(--white);
     box-shadow: 0 8px 24px -6px rgba(239, 68, 68, 0.3);
 }
-
 .btn-danger:hover {
     box-shadow: 0 16px 32px -8px rgba(239, 68, 68, 0.45);
 }
 
 .btn-icon {
-    width: 44px;
-    height: 44px;
-    padding: 0;
     border-radius: var(--radius-full);
-}
-
-/* Internal magnetic/interactive glow wrapper */
-.btn-magnetic {
-    transform-style: preserve-3d;
 }
 
 /* Sparkle / Button click ripple */
@@ -100,7 +90,6 @@
         opacity: 0;
     }
 }
-
 
 /* --- 2. Advanced Event & Stats Card Layouts --- */
 .glass-panel {
@@ -123,9 +112,11 @@
                 border-color var(--transition-normal);
     overflow: hidden;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Card Glow Coordinates following cursor (Uses variables updated via JS) */
+/* Card Glow Coordinates following cursor */
 .card-glow::after {
     content: '';
     position: absolute;
@@ -139,16 +130,13 @@
     transition: opacity 0.5s ease;
     z-index: 1;
 }
-
 .card-glow:hover::after {
     opacity: 1;
 }
 
-/* Gradient borders on hover cards */
 .card-interactive {
     border: 1px solid var(--border-color);
 }
-
 .card-interactive:hover {
     transform: translateY(-8px);
     box-shadow: var(--card-hover-shadow);
@@ -160,20 +148,20 @@
     overflow: hidden;
     position: relative;
     border-radius: var(--radius-md) var(--radius-md) 0 0;
+    aspect-ratio: 16 / 10;
 }
 
 .zoom-image {
     transition: transform var(--transition-slow);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-
 .card-interactive:hover .zoom-image {
     transform: scale(1.06);
 }
 
-
 /* --- 3. Custom Progress Rings & Badges --- */
-
-/* Badge difficulty modifiers */
 .badge {
     display: inline-flex;
     align-items: center;
@@ -193,7 +181,6 @@
 .badge-cultural { background: rgba(217, 70, 239, 0.1); color: #D946EF; }
 .badge-academic { background: rgba(167, 139, 250, 0.1); color: var(--accent); }
 
-/* Difficulty level tags */
 .badge-diff {
     font-size: 0.65rem;
     padding: 0.25rem 0.65rem;
@@ -202,7 +189,6 @@
 .badge-diff-medium { background: rgba(245, 158, 11, 0.08); color: #F59E0B; }
 .badge-diff-hard { background: rgba(239, 68, 68, 0.08); color: var(--danger); }
 
-/* Seats left SVG rings */
 .seats-progress-ring {
     position: relative;
     width: 36px;
@@ -232,7 +218,6 @@
     transition: stroke-dashoffset 0.6s ease;
 }
 
-
 /* --- 4. Custom Table Architecture --- */
 .table-container {
     width: 100%;
@@ -241,12 +226,14 @@
     border: 1px solid var(--border-color);
     box-shadow: var(--card-shadow);
     background: var(--bg-secondary);
+    -webkit-overflow-scrolling: touch; /* Momentum scroll on mobile Safari */
 }
 
 .responsive-table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
+    min-width: 600px; /* Force overflow trigger on small mobile screens */
 }
 
 .responsive-table th {
@@ -272,7 +259,6 @@
     background-color: rgba(var(--primary-rgb), 0.015);
 }
 
-
 /* --- 5. Form Design System --- */
 .form-group {
     margin-bottom: var(--spacing-md);
@@ -290,12 +276,13 @@
 .form-input {
     width: 100%;
     font-family: var(--font-family);
-    font-size: 0.98rem;
+    font-size: 16px; /* Explicitly 16px (1rem) to prevent automatic Safari iOS scale zooms */
     color: var(--text-primary);
     background: rgba(var(--primary-rgb), 0.01);
     border: 1.5px solid var(--border-color);
     border-radius: var(--radius-md);
     padding: 1rem 1.25rem;
+    min-height: 48px; /* Accessible form sizes */
     outline: none;
     transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
     box-sizing: border-box;
@@ -307,7 +294,6 @@
     box-shadow: 0 0 0 5px rgba(var(--primary-rgb), 0.08);
 }
 
-/* Error configurations */
 .form-group.has-error .form-input {
     border-color: var(--danger);
     background: rgba(239, 68, 68, 0.02);
@@ -316,7 +302,6 @@
 .form-group.has-error .form-label {
     color: var(--danger);
 }
-
 
 /* --- 6. Dialog & Modal Frameworks --- */
 .modal-overlay {
@@ -345,7 +330,7 @@
 .modal-container {
     width: 90%;
     max-width: 680px;
-    max-height: 85vh;
+    max-height: 90vh; /* Scaled to remain fully visible */
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
@@ -361,11 +346,49 @@
     transform: scale(1) translateY(0);
 }
 
-.modal-body {
-    overflow-y: auto;
-    padding: 2.25rem;
+.modal-header {
+    padding: 1.5rem 2.25rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-primary);
 }
 
+.modal-close {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.3rem;
+    width: 44px; /* Accessible Touch target close buttons */
+    height: 44px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+.modal-close:hover {
+    background: var(--border-color);
+    color: var(--text-primary);
+}
+
+.modal-body {
+    overflow-y: auto; /* Internal scrolling for long sheets */
+    padding: 2.25rem;
+    flex-grow: 1;
+    max-height: calc(90vh - 140px);
+}
+
+.modal-footer {
+    padding: 1.25rem 2.25rem;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+}
 
 /* --- 7. Toast Alerts --- */
 .toast-container {
