@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Registrations — NexEvent Hub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="spinner"></div>
+        <div class="preloader-text">SYNCING PROFILE</div>
+    </div>
+
+    <!-- Aurora backgrounds -->
+    <div class="aurora-container">
+        <div class="aurora-mesh aurora-1 animate-aurora-1"></div>
+        <div class="aurora-mesh aurora-2 animate-aurora-2"></div>
+    </div>
+
+    <!-- Header / Sticky Glass Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="my-registration.html" class="nav-link active">My Portal</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="hamburger" aria-label="Mobile Navigation Toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Header Banner Section -->
+        <section class="section-padding anim-fade-in-up" style="padding-top: 100px; padding-bottom: var(--spacing-sm);">
+            <div class="container text-center">
+                <span class="badge badge-tech"><i class="fas fa-user-circle"></i> Student Portal</span>
+                <h1 style="font-size: 2.8rem; margin-top: var(--spacing-xs); letter-spacing: -1.2px; font-weight: 700;">My Bookings</h1>
+                <p style="color: var(--text-secondary); max-width: 500px; margin: 8px auto 0; font-size: 0.98rem;">
+                    Manage active tickets, check event countdowns, or cancel seat reservations.
+                </p>
+            </div>
+        </section>
+
+        <!-- Stats Grid Section -->
+        <section class="reveal-on-scroll" style="margin-bottom: var(--spacing-lg);">
+            <div class="container">
+                <div class="grid-4">
+                    <!-- Stat Card 1 -->
+                    <div class="glass-panel" style="padding: var(--spacing-sm); display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(59, 130, 246, 0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <div>
+                            <h3 id="stat-total" class="stat-number" data-target="0" style="font-size: 1.6rem; font-weight: 700; letter-spacing:-0.5px;">0</h3>
+                            <p style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing:0.5px; font-weight:500;">Total bookings</p>
+                        </div>
+                    </div>
+                    <!-- Stat Card 2 -->
+                    <div class="glass-panel" style="padding: var(--spacing-sm); display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.08); color: #F59E0B; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                            <i class="fas fa-hourglass-start"></i>
+                        </div>
+                        <div>
+                            <h3 id="stat-upcoming" class="stat-number" data-target="0" style="font-size: 1.6rem; font-weight: 700; letter-spacing:-0.5px;">0</h3>
+                            <p style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing:0.5px; font-weight:500;">Upcoming slots</p>
+                        </div>
+                    </div>
+                    <!-- Stat Card 3 -->
+                    <div class="glass-panel" style="padding: var(--spacing-sm); display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(16, 185, 129, 0.08); color: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                            <i class="fas fa-circle-check"></i>
+                        </div>
+                        <div>
+                            <h3 id="stat-completed" class="stat-number" data-target="0" style="font-size: 1.6rem; font-weight: 700; letter-spacing:-0.5px;">0</h3>
+                            <p style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing:0.5px; font-weight:500;">Completed</p>
+                        </div>
+                    </div>
+                    <!-- Stat Card 4 -->
+                    <div class="glass-panel" style="padding: var(--spacing-sm); display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(239, 68, 68, 0.08); color: var(--danger); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                            <i class="fas fa-ban"></i>
+                        </div>
+                        <div>
+                            <h3 id="stat-cancelled" class="stat-number" data-target="0" style="font-size: 1.6rem; font-weight: 700; letter-spacing:-0.5px;">0</h3>
+                            <p style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing:0.5px; font-weight:500;">Cancelled</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Filtering Panel -->
+        <section class="reveal-on-scroll" style="margin-bottom: var(--spacing-md);">
+            <div class="container">
+                <div class="glass-panel" style="padding: var(--spacing-sm); display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        
+                        <!-- Search Box -->
+                        <div style="flex-grow: 1; position: relative; min-width: 250px;">
+                            <i class="fas fa-search" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1rem;"></i>
+                            <input type="text" id="reg-search" class="form-input" placeholder="Search by event, student, enrollment ID..." style="padding-left: 45px; width: 100%;">
+                        </div>
+
+                        <!-- Status Filter Dropdown -->
+                        <div style="width: 200px; position: relative;">
+                            <select id="reg-filter-status" class="form-input" style="padding-right: 35px; cursor: pointer; appearance: none; -webkit-appearance: none;">
+                                <option value="all">All Registrations</option>
+                                <option value="registered">Active</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                            <i class="fas fa-chevron-down" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none;"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Table Content -->
+        <section class="section-padding" style="padding-top: 0;">
+            <div class="container">
+                
+                <div class="table-container" id="reg-table-container">
+                    <table class="responsive-table">
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Student Details</th>
+                                <th>Event Details</th>
+                                <th>Booked On</th>
+                                <th>Status</th>
+                                <th style="text-align: right;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="registrations-tbody">
+                            <!-- Populated dynamically via JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Empty State -->
+                <div id="no-registrations-message" class="glass-panel text-center" style="display: none; padding: var(--spacing-xl); text-align: center;">
+                    <div style="font-size: 3.5rem; color: var(--text-muted); margin-bottom: var(--spacing-sm);"><i class="fas fa-folder-open"></i></div>
+                    <h3>No Registrations Logged</h3>
+                    <p style="color: var(--text-secondary); max-width: 400px; margin: 8px auto 0;">
+                        You have not registered for any events yet. Check our events catalog and find something exciting!
+                    </p>
+                    <a href="events.html" class="btn btn-primary btn-magnetic" style="margin-top: 15px;"><i class="fas fa-search-plus"></i> Find Events</a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Cancellation Confirmation Modal -->
+    <div id="cancel-confirm-modal" class="modal-overlay">
+        <div class="modal-container anim-scale-in" style="max-width: 450px;">
+            <div class="modal-header" style="background: rgba(239, 68, 68, 0.03);">
+                <h3 class="modal-title text-danger"><i class="fas fa-triangle-exclamation"></i> Cancel Seat Booking</h3>
+                <button class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" style="padding: var(--spacing-md);">
+                <p style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.5; margin-bottom: var(--spacing-sm);">
+                    Are you sure you want to cancel your seat? This action is permanent and the seat ticket will be returned to the event pool.
+                </p>
+                <div class="glass-panel" style="padding: var(--spacing-sm); font-size: 0.85rem; display: flex; flex-direction: column; gap: 6px;">
+                    <div><strong>Ticket ID:</strong> <span id="cancel-ticket-id" class="text-danger font-semibold">REG-000</span></div>
+                    <div><strong>Event:</strong> <span id="cancel-event-title">Event Title</span></div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding: var(--spacing-sm) var(--spacing-md);">
+                <button class="btn btn-glass" data-modal-close="cancel-confirm-modal">Keep Seat</button>
+                <button class="btn btn-danger" id="cancel-confirm-btn">Confirm Cancellation</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to top -->
+    <button class="back-to-top" aria-label="Scroll Back To Top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-waves"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+                    </a>
+                    <p class="footer-description">
+                        An advanced events dashboard connecting students with hackathons, debate forums, and athletic championships.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Navigations</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home Core</a></li>
+                        <li><a href="events.html">Events Catalog</a></li>
+                        <li><a href="my-registration.html">My Portal</a></li>
+                        <li><a href="about.html">About Timeline</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Security Spec</a></li>
+                        <li><a href="#">Usage Guidelines</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">College Nodes</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com" target="_blank">Student Council</a></li>
+                        <li><a href="#">Tech Club Portal</a></li>
+                        <li><a href="#">Sports Association</a></li>
+                        <li><a href="#">Academic Senate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NexEvent Hub. Developed with ❤️ by CSE Student Senate.</p>
+                <p>Designed for portfolio exhibition.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/sort.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Page Specific Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let registrations = StorageManager.getRegistrations();
+            
+            const tbody = document.getElementById('registrations-tbody');
+            const tableContainer = document.getElementById('reg-table-container');
+            const noRegMessage = document.getElementById('no-registrations-message');
+            
+            const searchInput = document.getElementById('reg-search');
+            const statusSelect = document.getElementById('reg-filter-status');
+
+            let currentSearch = '';
+            let currentStatus = 'all';
+            let activeCancellationId = null;
+
+            function renderStats() {
+                const stats = StorageManager.getRegistrationStats();
+                
+                const totalEl = document.getElementById('stat-total');
+                const upcomingEl = document.getElementById('stat-upcoming');
+                const completedEl = document.getElementById('stat-completed');
+                const cancelledEl = document.getElementById('stat-cancelled');
+
+                if (totalEl) totalEl.setAttribute('data-target', stats.total);
+                if (upcomingEl) upcomingEl.setAttribute('data-target', stats.upcoming);
+                if (completedEl) completedEl.setAttribute('data-target', stats.completed);
+                if (cancelledEl) cancelledEl.setAttribute('data-target', stats.cancelled);
+
+                CounterManager.init();
+            }
+
+            function render() {
+                registrations = StorageManager.getRegistrations();
+
+                let filtered = FilterManager.filterByCategory(registrations, currentStatus, 'status');
+                filtered = SearchManager.filterByKeyword(filtered, currentSearch, ['id', 'studentName', 'enrollmentNo', 'eventName', 'department']);
+
+                if (filtered.length === 0) {
+                    tableContainer.style.display = 'none';
+                    noRegMessage.style.display = 'block';
+                } else {
+                    tableContainer.style.display = 'block';
+                    noRegMessage.style.display = 'none';
+                    
+                    tbody.innerHTML = '';
+                    filtered.forEach(reg => {
+                        const dateStr = new Date(reg.registrationDate).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+
+                        const tr = document.createElement('tr');
+                        
+                        let statusClass = 'badge-status-pending';
+                        if (reg.status === 'registered') statusClass = 'badge-status-registered';
+                        else if (reg.status === 'cancelled') statusClass = 'badge-status-cancelled';
+                        else if (reg.status === 'completed') statusClass = 'badge-status-completed';
+
+                        const btnDisabled = reg.status === 'cancelled' ? 'disabled' : '';
+                        const btnClass = reg.status === 'cancelled' ? 'btn-glass' : 'btn-danger';
+
+                        tr.innerHTML = `
+                            <td><strong class="text-primary">${reg.id}</strong></td>
+                            <td>
+                                <div style="font-weight: 600;">${reg.studentName}</div>
+                                <div style="font-size: 0.75rem; color: var(--text-muted);">${reg.enrollmentNo} &bull; Sem ${reg.semester} &bull; ${reg.department}</div>
+                            </td>
+                            <td>
+                                <div style="font-weight: 500;">${reg.eventName}</div>
+                                <div style="font-size: 0.75rem; color: var(--text-muted);">ID: ${reg.eventId}</div>
+                            </td>
+                            <td style="font-size: 0.85rem; color: var(--text-secondary);">${dateStr}</td>
+                            <td><span class="badge ${statusClass} badge-status">${reg.status}</span></td>
+                            <td style="text-align: right;">
+                                <button class="btn ${btnClass}" style="padding: 0.45rem 0.9rem; font-size: 0.78rem;" ${btnDisabled} onclick="triggerCancelModal('${reg.id}', '${reg.eventName.replace(/'/g, "\\'")}')">
+                                    Cancel
+                                </button>
+                            </td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                }
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener('input', SearchManager.debounce((e) => {
+                    currentSearch = e.target.value;
+                    render();
+                }, 200));
+            }
+
+            if (statusSelect) {
+                statusSelect.addEventListener('change', (e) => {
+                    currentStatus = e.target.value;
+                    render();
+                });
+            }
+
+            const confirmBtn = document.getElementById('cancel-confirm-btn');
+            if (confirmBtn) {
+                confirmBtn.addEventListener('click', () => {
+                    if (activeCancellationId) {
+                        const result = StorageManager.cancelRegistration(activeCancellationId);
+                        ModalManager.close('cancel-confirm-modal');
+                        
+                        if (result.success) {
+                            App.showToast("Cancellation Successful", result.message, "warning");
+                            render();
+                            renderStats();
+                        } else {
+                            App.showToast("Cancellation Failed", result.message, "error");
+                        }
+                    }
+                });
+            }
+
+            window.triggerCancelModal = function(id, title) {
+                activeCancellationId = id;
+                document.getElementById('cancel-ticket-id').textContent = id;
+                document.getElementById('cancel-event-title').textContent = title;
+                ModalManager.open('cancel-confirm-modal');
+            };
+
+            render();
+            renderStats();
+        });
+    </script>
+</body>
+</html>

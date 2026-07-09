@@ -1,0 +1,119 @@
+/* 
+   File: css/responsive.css
+   Purpose: Mobile-first responsive modifications for grids, navigation menus, modal bounds, and font sizes across tablets and mobile screens.
+*/
+
+/* --- 1. Laptops / Smaller Desktops (Max 1024px) --- */
+@media (max-width: 1024px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+    
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1.5fr repeat(2, 1fr);
+    }
+    
+    .footer-brand {
+        grid-column: span 2;
+    }
+}
+
+/* --- 2. Tablets & Mobile Panels (Max 768px) --- */
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+
+    .section-padding {
+        padding: var(--spacing-lg) 0;
+    }
+
+    /* Shift nav links to full vertical drawer panel */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: var(--bg-secondary);
+        border-left: 1px solid var(--border-color);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 120px var(--spacing-md) var(--spacing-md);
+        gap: var(--spacing-sm);
+        transition: right var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+
+    .nav-menu.is-active {
+        right: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .footer-brand {
+        grid-column: span 1;
+    }
+
+    .modal-container {
+        width: 95%;
+        max-height: 90vh;
+    }
+}
+
+/* --- 3. Mobile Phones (Max 480px) --- */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .toast-container {
+        bottom: 20px;
+        right: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .responsive-table th, 
+    .responsive-table td {
+        padding: 0.85rem 1rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Get in touch with NexEvent Senate</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="spinner"></div>
+        <div class="preloader-text">NEXEVENT DIRECTORY</div>
+    </div>
+
+    <!-- Aurora backgrounds -->
+    <div class="aurora-container">
+        <div class="aurora-mesh aurora-1 animate-aurora-1"></div>
+        <div class="aurora-mesh aurora-2 animate-aurora-2"></div>
+    </div>
+
+    <!-- Header / Sticky Glass Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="my-registration.html" class="nav-link">My Portal</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="hamburger" aria-label="Mobile Navigation Toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Header Banner Section -->
+        <section class="section-padding anim-fade-in-up" style="padding-top: 100px; padding-bottom: var(--spacing-sm);">
+            <div class="container text-center">
+                <span class="badge badge-cultural"><i class="fas fa-headset text-secondary"></i> Support Node</span>
+                <h1 style="font-size: 2.8rem; margin-top: var(--spacing-xs); letter-spacing: -1.2px; font-weight: 700;">Get in Touch</h1>
+                <p style="color: var(--text-secondary); max-width: 500px; margin: 8px auto 0; font-size: 0.98rem;">
+                    Have questions about registration slots, coordinate mapping, or sponsorships? Drop us a query.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section Content -->
+        <section class="section-padding" style="padding-top: 0;">
+            <div class="container grid-2" style="align-items: flex-start; gap: 40px;">
+                
+                <!-- Left Column Form Panel -->
+                <div class="glass-panel card-glow" style="padding: var(--spacing-lg);">
+                    <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm); font-weight: 700; letter-spacing:-0.5px;">Send Us a Message</h2>
+                    <form id="contact-form" novalidate>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="contact-name">Full Name *</label>
+                            <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Abhi Kumar">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contact-email">Email Address *</label>
+                            <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. name@domain.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contact-subject">Subject *</label>
+                            <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="e.g. Registration Query">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contact-message">Your Message *</label>
+                            <textarea id="contact-message" name="message" class="form-input" placeholder="Describe your question or issue..." style="min-height: 120px; resize: vertical;"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-magnetic w-full" style="margin-top: 10px;">Send Query <i class="fas fa-paper-plane" style="margin-left: 8px;"></i></button>
+
+                    </form>
+                </div>
+
+                <!-- Right Column Contact Details -->
+                <div style="display: flex; flex-direction: column; gap: 20px; width:100%;">
+                    
+                    <!-- Details Info Deck -->
+                    <div class="glass-panel card-glow" style="padding: var(--spacing-md); display: flex; flex-direction: column; gap: 20px;">
+                        
+                        <!-- Location Detail -->
+                        <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(59, 130, 246, 0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 3px;">Campus Address</h3>
+                                <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">
+                                    Department of CSE, Ground Floor, Academic Senate Block, National Institute of Engineering Campus, Pin-110022
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Mail Detail -->
+                        <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(52, 211, 153, 0.08); color: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                                <i class="fas fa-envelope-open-text"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 3px;">Email Queries</h3>
+                                <a href="mailto:support@nexevent.edu" style="font-size: 0.88rem; color: var(--primary); line-height: 1.5;">support@nexevent.edu</a>
+                            </div>
+                        </div>
+
+                        <!-- Phone Detail -->
+                        <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.08); color: #F59E0B; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                                <i class="fas fa-phone-volume"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 3px;">Phone Line</h3>
+                                <a href="tel:+919876543210" style="font-size: 0.88rem; color: var(--text-primary); line-height: 1.5;">+91 98765 43210 (Mon-Fri 9AM-5PM)</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Embedded Map Placeholder -->
+                    <div class="glass-panel card-glow" style="padding: 10px; height: 210px; overflow: hidden; display: flex; flex-direction: column;">
+                        <div style="flex-grow: 1; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-primary); position: relative; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--border-color);">
+                            <!-- Aesthetic SVG Map Graphic -->
+                            <svg viewBox="0 0 400 180" style="width: 100%; height: 100%; opacity: 0.85;">
+                                <path d="M 0 40 L 400 40 M 0 100 L 400 100 M 0 150 L 400 150 M 120 0 L 120 180 M 280 0 L 280 180" stroke="var(--border-color)" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+                                <circle cx="200" cy="90" r="30" fill="rgba(var(--primary-rgb), 0.08)" stroke="var(--primary)" stroke-width="1" stroke-dasharray="3 3"/>
+                                <circle cx="200" cy="90" r="6" fill="var(--primary)"/>
+                                <text x="212" y="94" font-family="'Poppins'" font-size="10" font-weight="600" fill="var(--text-primary)">Academic Senate Block</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Back to top -->
+    <button class="back-to-top" aria-label="Scroll Back To Top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-waves"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+                    </a>
+                    <p class="footer-description">
+                        An advanced events dashboard connecting students with hackathons, debate forums, and athletic championships.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Navigations</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home Core</a></li>
+                        <li><a href="events.html">Events Catalog</a></li>
+                        <li><a href="my-registration.html">My Portal</a></li>
+                        <li><a href="about.html">About Timeline</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Security Spec</a></li>
+                        <li><a href="#">Usage Guidelines</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">College Nodes</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com" target="_blank">Student Council</a></li>
+                        <li><a href="#">Tech Club Portal</a></li>
+                        <li><a href="#">Sports Association</a></li>
+                        <li><a href="#">Academic Senate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NexEvent Hub. Developed with ❤️ by CSE Student Senate.</p>
+                <p>Designed for portfolio exhibition.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/sort.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Page Specific Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contact-form');
+            
+            FormValidation.initRealtimeValidation(form);
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const nameInput = form.querySelector('[name="name"]');
+                    const emailInput = form.querySelector('[name="email"]');
+                    const subjectInput = form.querySelector('[name="subject"]');
+                    const messageInput = form.querySelector('[name="message"]');
+
+                    let isValid = true;
+
+                    if (nameInput && nameInput.value.trim().length < 3) {
+                        FormValidation.showError(nameInput, "Please enter your name (min 3 characters).");
+                        isValid = false;
+                    }
+
+                    if (emailInput) {
+                        if (!emailInput.value.trim()) {
+                            FormValidation.showError(emailInput, "Email address is required.");
+                            isValid = false;
+                        } else if (!FormValidation.isValidEmail(emailInput.value)) {
+                            FormValidation.showError(emailInput, "Please enter a valid email address.");
+                            isValid = false;
+                        }
+                    }
+
+                    if (subjectInput && !subjectInput.value.trim()) {
+                        FormValidation.showError(subjectInput, "Subject line is required.");
+                        isValid = false;
+                    }
+
+                    if (messageInput && messageInput.value.trim().length < 10) {
+                        FormValidation.showError(messageInput, "Message body must be at least 10 characters long.");
+                        isValid = false;
+                    }
+
+                    if (!isValid) {
+                        App.showToast("Message Invalid", "Please fill in all required contact fields.", "error");
+                        return;
+                    }
+
+                    App.showToast("Message Sent!", "Thank you. Senate delegates will reply shortly.", "success");
+                    form.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

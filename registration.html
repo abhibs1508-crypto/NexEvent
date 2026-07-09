@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration — NexEvent</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="spinner"></div>
+        <div class="preloader-text">PREPARING PORTAL</div>
+    </div>
+
+    <!-- Aurora backgrounds -->
+    <div class="aurora-container">
+        <div class="aurora-mesh aurora-1 animate-aurora-1"></div>
+        <div class="aurora-mesh aurora-2 animate-aurora-2"></div>
+    </div>
+
+    <!-- Header / Sticky Glass Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="registration.html" class="nav-link active">My Registration</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="hamburger" aria-label="Mobile Navigation Toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        
+        <section class="section-padding anim-fade-in-up" style="padding-top: 100px;">
+            <div class="container grid-2" style="align-items: flex-start; gap: 40px;">
+                
+                <!-- Left Column Info Panel -->
+                <div style="position: sticky; top: 100px;">
+                    <span class="badge badge-academic"><i class="fas fa-ticket"></i> Seat Reservation</span>
+                    <h1 style="font-size: 2.8rem; margin-top: var(--spacing-xs); letter-spacing: -1.2px; font-weight: 700;">Seat Reservation</h1>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-size: 0.95rem;">
+                        Lock down your seat in seconds. Profile information is stored securely in your local browser profile (`localStorage`) for quick cancellations.
+                    </p>
+                    
+                    <!-- Info Cards -->
+                    <div class="glass-panel" style="padding: var(--spacing-sm); display: flex; flex-direction: column; gap: 15px;">
+                        <div style="display: flex; gap: 12px; align-items: flex-start;">
+                            <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: rgba(52, 211, 153, 0.08); color: var(--secondary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">
+                                <i class="fas fa-circle-check"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.9rem; font-weight: 600;">Instant Seat Claims</h4>
+                                <p style="font-size: 0.75rem; color: var(--text-secondary);">No human delays. Seat counts update dynamically inside storage buckets.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: flex-start;">
+                            <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: rgba(59, 130, 246, 0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">
+                                <i class="fas fa-rotate"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.9rem; font-weight: 600;">Refundable Reserval</h4>
+                                <p style="font-size: 0.75rem; color: var(--text-secondary);">Cancel seats at any time from your registrations panel to restore remaining tickets.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column Form Panel -->
+                <div class="glass-panel card-glow" style="padding: var(--spacing-lg); width: 100%;">
+                    <form id="event-registration-form" novalidate>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="eventId">Select Target Event *</label>
+                            <div style="position: relative;">
+                                <select name="eventId" id="eventId" class="form-input" style="padding-right: 35px; cursor: pointer; appearance: none; -webkit-appearance: none;">
+                                    <option value="" disabled selected>Choose an event...</option>
+                                </select>
+                                <i class="fas fa-chevron-down" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none;"></i>
+                            </div>
+                        </div>
+
+                        <div class="grid-2" style="gap: 15px;">
+                            <div class="form-group">
+                                <label class="form-label" for="studentName">Full Student Name *</label>
+                                <input type="text" name="studentName" id="studentName" class="form-input" placeholder="e.g. Abhi Kumar">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">College Email *</label>
+                                <input type="email" name="email" id="email" class="form-input" placeholder="e.g. name@domain.com">
+                            </div>
+                        </div>
+
+                        <div class="grid-2" style="gap: 15px;">
+                            <div class="form-group">
+                                <label class="form-label" for="enrollmentNo">Enrollment ID *</label>
+                                <input type="text" name="enrollmentNo" id="enrollmentNo" class="form-input" placeholder="e.g. 21CS0451">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number *</label>
+                                <input type="tel" name="phone" id="phone" class="form-input" placeholder="e.g. 9876543210">
+                            </div>
+                        </div>
+
+                        <div class="grid-3" style="gap: 12px; margin-bottom: var(--spacing-md);">
+                            <div class="form-group">
+                                <label class="form-label" for="department">Department *</label>
+                                <div style="position: relative;">
+                                    <select name="department" id="department" class="form-input" style="padding-right: 30px; appearance: none; -webkit-appearance: none;">
+                                        <option value="" disabled selected>Dept...</option>
+                                        <option value="CSE">Comp. Science (CSE)</option>
+                                        <option value="ECE">Electronics (ECE)</option>
+                                        <option value="ME">Mechanical (ME)</option>
+                                        <option value="CE">Civil Eng (CE)</option>
+                                        <option value="EE">Electrical (EE)</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 0.8rem;"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="semester">Semester *</label>
+                                <div style="position: relative;">
+                                    <select name="semester" id="semester" class="form-input" style="padding-right: 30px; appearance: none; -webkit-appearance: none;">
+                                        <option value="" disabled selected>Sem...</option>
+                                        <option value="1">1st Sem</option>
+                                        <option value="2">2nd Sem</option>
+                                        <option value="3">3rd Sem</option>
+                                        <option value="4">4th Sem</option>
+                                        <option value="5">5th Sem</option>
+                                        <option value="6">6th Sem</option>
+                                        <option value="7">7th Sem</option>
+                                        <option value="8">8th Sem</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 0.8rem;"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="gender">Gender *</label>
+                                <div style="position: relative;">
+                                    <select name="gender" id="gender" class="form-input" style="padding-right: 30px; appearance: none; -webkit-appearance: none;">
+                                        <option value="" disabled selected>Gender...</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 0.8rem;"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 15px; border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm); margin-top: var(--spacing-sm);">
+                            <button type="reset" class="btn btn-glass" style="width: 120px;">Reset</button>
+                            <button type="submit" class="btn btn-primary btn-magnetic" style="flex-grow: 1;">Complete Registration</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Success Modal Overlay -->
+    <div id="success-modal" class="modal-overlay">
+        <div class="modal-container anim-scale-in" style="max-width: 450px; text-align: center;">
+            <div class="modal-body" style="padding: var(--spacing-xl);">
+                
+                <!-- Success check drawing -->
+                <div style="width: 80px; height: 80px; margin: 0 auto 20px;">
+                    <svg viewBox="0 0 52 52" style="width: 100%; height: 100%; border-radius: 50%; display: block; stroke-width: 2; stroke: var(--secondary); stroke-miterlimit: 10;">
+                        <circle cx="26" cy="26" r="25" fill="none" style="stroke-dasharray: 166; stroke-dashoffset: 166; stroke-width: 2.5; stroke-miterlimit: 10; stroke: var(--secondary); animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;"/>
+                        <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" style="stroke-dasharray: 48; stroke-dashoffset: 48; stroke-width: 3.5; stroke-linecap: round; stroke-miterlimit: 10; stroke: var(--secondary); animation: drawCheck 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;"/>
+                    </svg>
+                </div>
+
+                <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.8px;">Reservation Logged!</h2>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin-bottom: var(--spacing-md);">
+                    Your seat booking was successful. An entry has been logged to your registrations panel.
+                </p>
+
+                <div class="glass-panel" style="padding: var(--spacing-sm); text-align: left; margin-bottom: var(--spacing-md); font-size: 0.85rem; display: flex; flex-direction: column; gap: 8px;">
+                    <div><strong>Ticket ID:</strong> <span id="success-ticket-id" class="text-primary font-semibold">REG-000</span></div>
+                    <div><strong>Event:</strong> <span id="success-event-title">Event Title</span></div>
+                    <div><strong>Student:</strong> <span id="success-student-name">Student Name</span></div>
+                </div>
+
+                <button class="btn btn-primary w-full" id="success-close-btn">View My Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to top -->
+    <button class="back-to-top" aria-label="Scroll Back To Top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-waves"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-circle-nodes logo-icon"></i> NexEvent
+                    </a>
+                    <p class="footer-description">
+                        An advanced events dashboard connecting students with hackathons, debate forums, and athletic championships.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Navigations</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home Core</a></li>
+                        <li><a href="events.html">Events Catalog</a></li>
+                        <li><a href="my-registration.html">My Portal</a></li>
+                        <li><a href="about.html">About Timeline</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Security Spec</a></li>
+                        <li><a href="#">Usage Guidelines</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">College Nodes</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com" target="_blank">Student Council</a></li>
+                        <li><a href="#">Tech Club Portal</a></li>
+                        <li><a href="#">Sports Association</a></li>
+                        <li><a href="#">Academic Senate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NexEvent Hub. Developed with ❤️ by CSE Student Senate.</p>
+                <p>Designed for portfolio exhibition.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/sort.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Page Specific Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const events = EventManager.loadEvents();
+            const form = document.getElementById('event-registration-form');
+            const selectEl = document.getElementById('eventId');
+            
+            if (selectEl) {
+                selectEl.innerHTML = '<option value="" disabled selected>Choose an event...</option>';
+                events.forEach(ev => {
+                    const option = document.createElement('option');
+                    option.value = ev.id;
+                    option.textContent = `${ev.title} (${ev.seatsLeft} Seats Left)`;
+                    
+                    if (ev.seatsLeft === 0) {
+                        option.disabled = true;
+                        option.textContent += ' [SOLD OUT]';
+                    }
+                    selectEl.appendChild(option);
+                });
+            }
+
+            FormValidation.initRealtimeValidation(form);
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const queryEventId = urlParams.get('event');
+            if (queryEventId && selectEl) {
+                selectEl.value = queryEventId;
+            }
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const isValid = FormValidation.validateRegistration(form);
+                    if (!isValid) {
+                        App.showToast("Form Invalid", "Please resolve errors before submitting.", "error");
+                        return;
+                    }
+
+                    const eventId = form.querySelector('[name="eventId"]').value;
+                    const studentName = form.querySelector('[name="studentName"]').value.trim();
+                    const email = form.querySelector('[name="email"]').value.trim();
+                    const enrollmentNo = form.querySelector('[name="enrollmentNo"]').value.trim();
+                    const department = form.querySelector('[name="department"]').value;
+                    const semester = form.querySelector('[name="semester"]').value;
+                    const phone = form.querySelector('[name="phone"]').value.trim();
+                    const gender = form.querySelector('[name="gender"]').value;
+                    
+                    const eventData = EventManager.getEventById(eventId);
+
+                    const submission = {
+                        eventId,
+                        eventName: eventData.title,
+                        studentName,
+                        email,
+                        enrollmentNo,
+                        department,
+                        semester,
+                        phone,
+                        gender
+                    };
+
+                    const result = StorageManager.registerStudent(submission);
+
+                    if (result.success) {
+                        document.getElementById('success-ticket-id').textContent = result.registration.id;
+                        document.getElementById('success-event-title').textContent = submission.eventName;
+                        document.getElementById('success-student-name').textContent = submission.studentName;
+                        
+                        ModalManager.open('success-modal');
+                        App.showToast("Registration Confirmed!", "Seat reserved successfully.", "success");
+                        
+                        triggerConfetti();
+
+                        const closeBtn = document.getElementById('success-close-btn');
+                        closeBtn.onclick = () => {
+                            window.location.href = 'my-registration.html';
+                        };
+                    } else {
+                        App.showToast("Registration Failed", result.message, "error");
+                    }
+                });
+            }
+        });
+
+        // Falling confetti elements
+        function triggerConfetti() {
+            const count = 75;
+            const container = document.body;
+
+            for (let i = 0; i < count; i++) {
+                const conf = document.createElement('div');
+                conf.style.position = 'fixed';
+                conf.style.width = `${Math.random() * 8 + 5}px`;
+                conf.style.height = `${Math.random() * 8 + 5}px`;
+                
+                const colors = ['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#A78BFA'];
+                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                conf.style.borderRadius = Math.random() > 0.5 ? '50%' : '0%';
+                conf.style.left = `${Math.random() * 100}vw`;
+                conf.style.top = `-50px`;
+                conf.style.zIndex = '9999';
+                conf.style.pointerEvents = 'none';
+                
+                const duration = Math.random() * 3 + 2.5;
+                conf.style.animation = `confetti-fall ${duration}s linear forwards`;
+                conf.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+                container.appendChild(conf);
+
+                setTimeout(() => {
+                    conf.remove();
+                }, duration * 1000);
+            }
+        }
+    </script>
+</body>
+</html>
